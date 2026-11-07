@@ -1,0 +1,28 @@
+{% extends 'navigationbar.html' %}
+
+{% block body %}
+<main class="dashboard-section container py-5">
+	<header class="text-center mb-5">
+		<p class="about-eyebrow text-primary fw-bold mb-2">LYALLPUR GOLD GYM</p>
+		<h1 class="about-title text-primary mb-3">Admin Dashboard</h1>
+		<p class="about-lead mx-auto">Manage your gym operations from one place.</p>
+	</header>
+
+	<div class="row g-4">
+		<div class="col-sm-6 col-xl-3"><a class="dashboard-card" href="{% url 'enquiry_list' %}"><span class="dashboard-number">{{ enquiries_count }}</span><span class="dashboard-label">Enquiries</span></a></div>
+		<div class="col-sm-6 col-xl-3"><a class="dashboard-card" href="{% url 'equipment_list' %}"><span class="dashboard-number">{{ equipment_count }}</span><span class="dashboard-label">Equipment</span></a></div>
+		<div class="col-sm-6 col-xl-3"><a class="dashboard-card" href="{% url 'plan_list' %}"><span class="dashboard-number">{{ plans_count }}</span><span class="dashboard-label">Plans</span></a></div>
+		<div class="col-sm-6 col-xl-3"><a class="dashboard-card" href="{% url 'member_list' %}"><span class="dashboard-number">{{ members_count }}</span><span class="dashboard-label">Members</span></a></div>
+	</div>
+
+	<section class="dashboard-quick-links mt-5" aria-labelledby="quick-actions-title">
+		<h2 id="quick-actions-title" class="h4 mb-3">Quick Actions</h2>
+		<div class="d-flex flex-wrap gap-2">
+			<a class="btn btn-primary" href="{% url 'member_add' %}">Add Member</a>
+			<a class="btn btn-outline-primary" href="{% url 'plan_add' %}">Add Plan</a>
+			<a class="btn btn-outline-primary" href="{% url 'equipment_add' %}">Add Equipment</a>
+			<a class="btn btn-outline-primary" href="{% url 'enquiry_add' %}">Add Enquiry</a>
+		</div>
+	</section>
+</main>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+
+{% block body %}
+<main class="about-section container py-5">
+	<header class="about-header text-center mb-5">
+		<p class="about-eyebrow text-primary fw-bold mb-2">LYALLPUR GOLD GYM</p>
+		<h1 class="about-title text-primary mb-3">About Us</h1>
+		<p class="about-lead mx-auto">A focused training space for stronger bodies, healthier habits, and confident lives.</p>
+	</header>
+	<section class="row align-items-center g-5 mb-5" aria-labelledby="our-story-title">
+		<div class="col-lg-6">
+			<img class="about-image img-fluid rounded shadow" src="{% static 'images/unnamed.webp' %}" alt="LYALLPUR GOLD GYM training area">
+		</div>
+		<div class="col-lg-6 about-copy">
+			<p class="about-kicker text-primary fw-bold mb-2">Welcome to LYALLPUR GOLD GYM</p>
+			<h2 id="our-story-title" class="mb-3">Train stronger. Live healthier.</h2>
+			<p>LYALLPUR GOLD GYM is a welcoming fitness space built for people who want to become stronger, healthier, and more confident.</p>
+			<p>Our gym provides quality equipment, a focused training environment, and practical support for beginners and experienced members alike. Whether you are building strength, improving fitness, or working toward a personal goal, our team is here to help you stay consistent.</p>
+		</div>
+	</section>
+	<section class="about-values" aria-labelledby="why-choose-us-title">
+		<h2 id="why-choose-us-title" class="h3 text-center mb-4">Why Choose Us</h2>
+		<div class="row g-3">
+			<div class="col-md-4"><article class="about-feature"><h3 class="h5">Modern Equipment</h3><p>Train with reliable machines and free weights.</p></article></div>
+			<div class="col-md-4"><article class="about-feature"><h3 class="h5">Supportive Community</h3><p>Stay motivated in a friendly atmosphere.</p></article></div>
+			<div class="col-md-4"><article class="about-feature"><h3 class="h5">Goal-Focused Training</h3><p>Build consistent habits around your fitness goals.</p></article></div>
+		</div>
+	</section>
+</main>
+{% endblock %}

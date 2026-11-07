@@ -1,0 +1,170 @@
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    background-color: lightblue !important;
+    border-radius: 5px;
+}
+
+.site-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+.about-section {
+    min-height: calc(100vh - 56px);
+}
+
+.about-title {
+    font-weight: 700;
+}
+
+.about-eyebrow {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.about-lead {
+    max-width: 650px;
+    color: #5c6670;
+    font-size: 1.1rem;
+}
+
+.about-image {
+    width: 100%;
+    max-height: 430px;
+    object-fit: cover;
+}
+
+.about-kicker {
+    letter-spacing: 0.04em;
+}
+
+.about-feature {
+    height: 100%;
+    padding: 1rem;
+    border-left: 4px solid #0d6efd;
+    background: #f4f8ff;
+}
+
+.about-feature p {
+    color: #5c6670;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.contact-section {
+    min-height: calc(100vh - 56px);
+}
+
+.contact-card {
+    padding: 1.5rem;
+    border: 1px solid #dfe7f2;
+    border-radius: 0.5rem;
+    background: #f8fbff;
+}
+
+.contact-detail {
+    margin-bottom: 1.25rem;
+}
+
+.contact-detail strong,
+.contact-detail a {
+    display: block;
+}
+
+.contact-detail a {
+    color: #0d6efd;
+    margin-top: 0.3rem;
+    text-decoration: none;
+}
+
+.contact-detail a:hover {
+    text-decoration: underline;
+}
+
+.hours-note {
+    color: #6c757d;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.contact-hours th {
+    width: 42%;
+}
+
+.contact-hours td,
+.contact-hours th {
+    vertical-align: middle;
+}
+
+.dashboard-section {
+    min-height: calc(100vh - 56px);
+}
+
+.dashboard-card {
+    display: flex;
+    min-height: 150px;
+    padding: 1.5rem;
+    border: 1px solid #dfe7f2;
+    border-bottom: 6px solid #a9dce8;
+    border-radius: 0.5rem;
+    background: #ffffff;
+    box-shadow: 0 0.25rem 1rem rgba(13, 110, 253, 0.08);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.dashboard-card:hover {
+    box-shadow: 0 0.5rem 1.25rem rgba(13, 110, 253, 0.16);
+    transform: translateY(-3px);
+}
+
+.dashboard-number {
+    color: #0808c8;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.dashboard-label {
+    color: #111111;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.contact-hours tr {
+    border-bottom: 1px solid #e6ebf2;
+}
+
+.contact-hours tr:last-child {
+    border-bottom: 0;
+}
+
+.contact-hours th {
+    font-weight: 700;
+}
+
+.hours-today {
+    background: #eef6ff;
+}
+
+.today-badge {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.2rem 0.45rem;
+    border-radius: 999px;
+    background: #0d6efd;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.hours-session {
+    display: block;
+    line-height: 1.6;
+}

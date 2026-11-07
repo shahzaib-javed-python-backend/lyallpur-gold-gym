@@ -1,0 +1,17 @@
+{% extends 'navigationbar.html' %}
+
+{% block body %}
+<div class="container py-4">
+  <h2 class="text-primary mb-4 text-center">Add Enquiry</h2>
+  <form method="post" class="row g-3">
+    {% csrf_token %}
+    <div class="col-md-6"><label class="form-label">Name</label><input class="form-control" name="name" required></div>
+    <div class="col-md-6"><label class="form-label">Contact</label><input class="form-control" name="phone" required></div>
+    <div class="col-md-6"><label class="form-label">Email ID</label><input class="form-control" type="email" name="email" required></div>
+    <div class="col-md-3"><label class="form-label">Age</label><input class="form-control" type="number" min="1" name="age"></div>
+    <div class="col-md-3"><label class="form-label">Gender</label><select class="form-select" name="gender"><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select></div>
+    <div class="col-12"><label class="form-label">Message</label><textarea class="form-control" name="message" rows="4" required></textarea></div>
+    <div class="col-12"><button class="btn btn-primary" type="submit">Submit</button></div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,113 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <title>LYALLPUR GOLD GYM Management</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/3.1.5/css/dataTables.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/4.1.3/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+</head>
+
+<body>
+  <nav class="site-navbar navbar navbar-expand-md bg-primary navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">LYALLPUR GOLD GYM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#abc" aria-controls="abc"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="abc">
+        <ul class="navbar-nav">
+          {% if not request.user.is_staff %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin_login' %}">Admin Login</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Enquiry</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'enquiry_add' %}">Add Enquiry</a></li>
+              <li><a class="dropdown-item" href="{% url 'enquiry_list' %}">View Enquiries</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Plans</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'plan_add' %}">Add Plan</a></li>
+              <li><a class="dropdown-item" href="{% url 'plan_list' %}">View Plans</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Equipment</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'equipment_add' %}">Add Equipment</a></li>
+              <li><a class="dropdown-item" href="{% url 'equipment_list' %}">View Equipment</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Members</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'member_add' %}">Add Member</a></li>
+              <li><a class="dropdown-item" href="{% url 'member_list' %}">View Members</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin_logout' %}">Logout</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% block body %}
+
+  {% endblock %}
+
+  <script src="https://cdn.datatables.net/3.1.5/js/dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/4.1.3/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/4.1.3/js/buttons.dataTables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfmake@0.3.11/build/pdfmake.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfmake@0.3.11/build/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/4.1.3/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const table = document.querySelector('#example');
+
+      if (table) {
+        new DataTable('#example', {
+          layout: {
+            topStart: {
+              buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

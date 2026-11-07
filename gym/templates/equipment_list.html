@@ -1,0 +1,12 @@
+{% extends 'navigationbar.html' %}
+
+{% block body %}
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3"><h2 class="text-primary">Equipment</h2><a class="btn btn-primary" href="{% url 'equipment_add' %}">Add Equipment</a></div>
+  {% if messages %}{% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}{% endif %}
+  <div class="table-responsive"><table id="example" class="display table table-striped"><thead><tr><th>Name</th><th>Price</th><th>Unit</th><th>Quantity</th><th>Purchase Date</th><th>Condition</th><th>Remove</th></tr></thead><tbody>
+  {% for item in equipment %}<tr><td>{{ item.name }}</td><td>{{ item.price }}</td><td>{{ item.unit }}</td><td>{{ item.quantity }}</td><td>{{ item.purchase_date|default:'-' }}</td><td>{{ item.condition }}</td><td><form method="post" action="{% url 'equipment_delete' item.id %}" onsubmit="return confirm('Remove this equipment?');">{% csrf_token %}<button class="btn btn-sm btn-outline-danger" type="submit">Remove</button></form></td></tr>
+  {% empty %}<tr><td colspan="7" class="text-center">No equipment yet.</td></tr>{% endfor %}
+  </tbody></table></div>
+</div>
+{% endblock %}

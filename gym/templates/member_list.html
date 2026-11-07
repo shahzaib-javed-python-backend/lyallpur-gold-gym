@@ -1,0 +1,12 @@
+{% extends 'navigationbar.html' %}
+
+{% block body %}
+<div class="container py-4">
+  {% if messages %}{% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}{% endif %}
+  <div class="d-flex justify-content-between align-items-center mb-3"><h2 class="text-primary">View Members</h2><a class="btn btn-primary" href="{% url 'member_add' %}">Add Member</a></div>
+  <div class="table-responsive"><table id="example" class="display table table-striped align-middle"><thead><tr><th>Name</th><th>Contact</th><th>EmailID</th><th>Age</th><th>Gender</th><th>PlanName</th><th>JoinDate</th><th>Plan Expire Date</th><th>Initial Amount</th><th>Remove</th></tr></thead><tbody>
+  {% for member in members %}<tr><td>{{ member.name }}</td><td>{{ member.phone }}</td><td>{{ member.email|default:'-' }}</td><td>{{ member.age|default:'-' }}</td><td>{{ member.gender|default:'-' }}</td><td>{{ member.plan.name|default:'-' }}</td><td>{{ member.join_date|date:'d-m-Y' }}</td><td>{{ member.expiry_date|date:'d-m-Y'|default:'-' }}</td><td>{{ member.initial_amount }}</td><td><form method="post" action="{% url 'member_delete' member.id %}" onsubmit="return confirm('Remove this member?');">{% csrf_token %}<button class="btn btn-sm btn-outline-danger" type="submit">Remove</button></form></td></tr>
+  {% empty %}<tr><td colspan="10" class="text-center">No members yet.</td></tr>{% endfor %}
+  </tbody></table></div>
+</div>
+{% endblock %}
