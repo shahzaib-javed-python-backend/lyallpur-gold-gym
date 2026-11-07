@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from django.db import models
 from django.utils import timezone
 
@@ -13,7 +15,7 @@ class Enquiry(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 
 	class Meta:
-		ordering = ['-created_at']
+		ordering = ('-created_at',)
 
 	def __str__(self):
 		return self.name
@@ -51,14 +53,14 @@ class Member(models.Model):
 	)
 	join_date = models.DateField(default=timezone.localdate)
 	expiry_date = models.DateField(null=True, blank=True)
-	initial_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+	initial_amount = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'))
 	status = models.CharField(max_length=20, choices=Status.choices, default=Status.ACTIVE)
 	emergency_contact = models.CharField(max_length=100, blank=True)
 	emergency_phone = models.CharField(max_length=20, blank=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 
 	class Meta:
-		ordering = ['-created_at']
+		ordering = ('-created_at',)
 
 	def __str__(self):
 		return self.name
@@ -66,7 +68,7 @@ class Member(models.Model):
 
 class Equipment(models.Model):
 	name = models.CharField(max_length=100)
-	price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+	price = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'))
 	quantity = models.PositiveIntegerField(default=1)
 	unit = models.CharField(max_length=30, default='Piece')
 	purchase_date = models.DateField(null=True, blank=True)
